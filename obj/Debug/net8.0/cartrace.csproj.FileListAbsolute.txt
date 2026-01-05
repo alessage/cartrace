@@ -60,3 +60,4 @@
 \\Mac\Home\Downloads\cartrace\bin\Debug\net8.0\System.Text.Encodings.Web.dll
 \\Mac\Home\Downloads\cartrace\bin\Debug\net8.0\System.Text.Json.dll
 \\Mac\Home\Downloads\cartrace\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+\\Mac\Home\Downloads\cartrace\obj\Debug\net8.0\cartrace.sourcelink.json

@@ -22,7 +22,7 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
         if (p is "ZZ999ZZ" or "NOTFOUND")
             return Task.FromResult<VehicleSnapshot?>(null);
 
-        // Mock con varianti per testare casi diversi
+        
         var now = DateTimeOffset.UtcNow;
 
         var hash = Math.Abs(p.GetHashCode());
@@ -67,6 +67,29 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
     "Technician",
     "Supervisor"
 };
+
+        string GenerateVin(string plate)
+        {
+            const string chars = "ABCDEFGHJKLMNPRSTUVWXYZ0123456789"; // no I,O,Q
+            var h = Math.Abs(plate.GetHashCode());
+
+            var vin = new char[17];
+
+            for (int i = 0; i < 17; i++)
+            {
+                vin[i] = chars[(h + i * 37) % chars.Length];
+            }
+
+            // Costruiamo un prefisso realistico (WMI)
+            var wmi = new[] { "ZFA", "WVW", "WF0", "WDB", "VF1", "ZCF" };
+            var prefix = wmi[h % wmi.Length];
+
+            vin[0] = prefix[0];
+            vin[1] = prefix[1];
+            vin[2] = prefix[2];
+
+            return new string(vin);
+        }
 
         List<CurrentUser> GenerateUsers(string plate)
         {
@@ -128,11 +151,19 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
             return 20_000 + (h % 180_000); // 20.000 – 200.000 km
         }
 
+        string GeneratePracticeNumber(string plate, int eventIndex)
+        {
+            var h = Math.Abs((plate + "|" + eventIndex).GetHashCode());
+            // formato: PR-2026-XXXXXX
+            var seq = 100000 + (h % 900000);
+            return $"PR-2026-{seq}";
+        }
+
 
         var make = makes[hash % makes.Length];
         var modelList = models[make];
         var model = modelList[hash % modelList.Length];
-        var year = 2016 + (hash % 9); // 2016–2024
+        var year = 2005 + (hash % 9); // 2016–2024
         var fuel = fuels[(hash / 7) % fuels.Length];
 
        
@@ -144,33 +175,39 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
             Vehicle = new VehicleInfo
             {
                 PlateMasked = MaskPlate(p),
+                Vin = GenerateVin(p),
                 Make = make,
                 Model = model,
                 Year = year,
                 Fuel = fuel
             },
-            ServiceEvents = new List<ServiceEvent>
-            {
-                new ServiceEvent
-                {
-                    Type = "Service / Oil + Filters",
-                    Km = BaseKm(p),
-                    Where = "Workshop X (MI)",
-                    When = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-85)),
-                    Parts = PickParts(p, eventIndex: 0, count: 2)
-                },
-                new ServiceEvent
-                {
-                    Type = "Brake pads replacement",
-                    Km = BaseKm(p),
-                    Where = "Workshop Y (MI)",
-                    When = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-145)),
-                    Parts = PickParts(p, eventIndex: 0, count: 2)
-                }
-            },
             CurrentUsers = GenerateUsers(p),
             Warnings = new List<string>()
         };
+
+        Random rnd = new Random();
+        int r = rnd.Next(1, 3);
+
+
+        var serviceType = new[] { "mechanics", "body", "glass", "tires", "revision" };
+
+        for (int i = 0; i <= r; i++)
+        {
+            snapshot.ServiceEvents.Add(
+                new ServiceEvent
+                {
+                    PracticeNumber = GeneratePracticeNumber(p, 1),
+                    Type = serviceType[r],
+                    Km = BaseKm(p),
+                    Where = "Workshop " + Math.Abs(plate.GetHashCode()),
+                    When = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-145)),
+                    Backoffice = "BCK_" + Math.Abs(plate.GetHashCode()),
+                    Technician = "TECH_" + Math.Abs(plate.GetHashCode()),
+                    Parts = PickParts(p, eventIndex: 0, count: 2)
+                }
+                );
+        }
+
 
         // Caso “storia parziale”
         if (p.StartsWith("AA"))
@@ -231,6 +268,9 @@ public sealed class VehicleInfo
     [JsonPropertyName("plate_masked")]
     public string PlateMasked { get; set; } = "";
 
+    [JsonPropertyName("vin")]
+    public string? Vin { get; set; }
+
     [JsonPropertyName("make")]
     public string? Make { get; set; }
 
@@ -246,6 +286,8 @@ public sealed class VehicleInfo
 
 public sealed class ServiceEvent
 {
+    [JsonPropertyName("practice_number")]
+    public string PracticeNumber { get; set; } = "";
     [JsonPropertyName("type")]
     public string Type { get; set; } = "";
 
@@ -257,6 +299,13 @@ public sealed class ServiceEvent
 
     [JsonPropertyName("when")]
     public DateOnly When { get; set; }
+
+    [JsonPropertyName("backoffice")]
+    public string Backoffice { get; set; } = "";
+
+    [JsonPropertyName("technician")]
+    public string Technician { get; set; } = "";
+
     [JsonPropertyName("parts")]
     public List<PartUsed> Parts { get; set; } = new();
 }

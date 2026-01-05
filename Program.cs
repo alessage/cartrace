@@ -66,4 +66,18 @@ app.MapControllers();
 
 app.MapGet("/", () => Results.Ok("CarTrace MCP is running"));
 
+app.MapGet("/version", () =>
+{
+    var asm = typeof(Program).Assembly;
+
+    return Results.Json(new
+    {
+        app = "CarTrace",
+        version = asm.GetName().Version?.ToString(),
+        build = Environment.GetEnvironmentVariable("CARTRACE_BUILD") ?? "local",
+        environment = Environment.GetEnvironmentVariable("AWS_EXECUTION_ENV") != null ? "lambda" : "local"
+    });
+});
+
+
 app.Run();

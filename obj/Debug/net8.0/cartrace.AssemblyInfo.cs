@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("cartrace")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcdc3a0fe035dd3d6262bfec85f4c7e9a6c8d7b2")]
 [assembly: System.Reflection.AssemblyProductAttribute("cartrace")]
 [assembly: System.Reflection.AssemblyTitleAttribute("cartrace")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

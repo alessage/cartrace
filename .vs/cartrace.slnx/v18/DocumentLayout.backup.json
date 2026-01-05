@@ -6,16 +6,13 @@
       "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\controllers\\mcpcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\aws_deploy.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\controllers\\mcpcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\cartrace.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
@@ -110,20 +107,20 @@
               "RelativeDocumentMoniker": "models\\vehicle.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\models\\vehicle.cs",
               "RelativeToolTip": "models\\vehicle.cs",
-              "ViewState": "AgIAAKEAAAAAAAAAAAAMwKsAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAMoAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T11:11:27.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "VehicleController.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\Controllers\\VehicleController.cs",
               "RelativeDocumentMoniker": "Controllers\\VehicleController.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\Controllers\\VehicleController.cs",
               "RelativeToolTip": "Controllers\\VehicleController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAowBsAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAIwBsAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T10:52:02.587Z",
               "EditorCaption": ""
@@ -136,7 +133,7 @@
               "RelativeDocumentMoniker": "Controllers\\McpController.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\Controllers\\McpController.cs",
               "RelativeToolTip": "Controllers\\McpController.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAACQAAAAAAAAAAAAowBgAAAB+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T10:51:19.25Z",
               "EditorCaption": ""
@@ -144,19 +141,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "aws_deploy.txt",
-              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\aws_deploy.txt",
-              "RelativeDocumentMoniker": "aws_deploy.txt",
-              "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\aws_deploy.txt",
-              "RelativeToolTip": "aws_deploy.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-01-05T10:31:37.719Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "cartrace",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\cartrace.csproj",
               "RelativeDocumentMoniker": "cartrace.csproj",
@@ -168,13 +152,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAcwEEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T10:26:37.592Z",
               "EditorCaption": ""

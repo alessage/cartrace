@@ -17,6 +17,18 @@
         }
       }
     },
+    "/version": {
+      "get": {
+        "tags": [
+          "cartrace"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/mcp": {
       "get": {
         "tags": [

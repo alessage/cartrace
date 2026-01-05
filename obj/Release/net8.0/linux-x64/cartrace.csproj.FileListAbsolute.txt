@@ -55,3 +55,4 @@
 /Users/alessage/Downloads/cartrace/obj/Release/net8.0/linux-x64/cartrace.pdb
 /Users/alessage/Downloads/cartrace/obj/Release/net8.0/linux-x64/cartrace.genruntimeconfig.cache
 /Users/alessage/Downloads/cartrace/obj/Release/net8.0/linux-x64/ref/cartrace.dll
+/Users/alessage/Downloads/cartrace/obj/Release/net8.0/linux-x64/cartrace.sourcelink.json

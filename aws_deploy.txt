@@ -15,3 +15,6 @@
 
 
   curl -i https://st3tfex04i.execute-api.eu-west-1.amazonaws.com/api/mcp
+
+
+  https://st3tfex04i.execute-api.eu-west-1.amazonaws.com/version

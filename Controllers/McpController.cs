@@ -22,7 +22,7 @@ public sealed class McpController : ControllerBase
                 new
                 {
                     name = "get_vehicle_snapshot_by_plate",
-                    description = "Given a license plate, returns generic vehicle info, service events (type/km/where/when) and current corporate users.",
+                    description = "Given a license plate, returns generic vehicle info, service events (type/km/where/when/who) and current corporate users.",
                     input_schema = new
                     {
                         type = "object",
@@ -58,7 +58,7 @@ public sealed class McpController : ControllerBase
 
         if (snapshot is null)
         {
-            // MCP standard-like response: no data but structured output
+           
             return Ok(new
             {
                 content = new object[]
