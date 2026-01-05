@@ -1,0 +1,34 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Transform": "AWS::Serverless-2016-10-31",
+  "Description": "CarTrace MCP - ASP.NET Core on Lambda (HTTP API)",
+  "Resources": {
+    "CarTraceMcpFunction": {
+      "Type": "AWS::Serverless::Function",
+      "Properties": {
+        "FunctionName": "cartrace-mcp-dev",
+        "Handler": "cartrace",
+        "Runtime": "dotnet8",
+        "MemorySize": 512,
+        "Timeout": 30,
+        "Policies": [ "AWSLambdaBasicExecutionRole" ],
+        "Events": {
+          "ApiProxy": {
+            "Type": "HttpApi",
+            "Properties": {
+              "Path": "/{proxy+}",
+              "Method": "ANY"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Outputs": {
+    "HttpApiUrl": {
+      "Value": {
+        "Fn::Sub": "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com"
+      }
+    }
+  }
+}

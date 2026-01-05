@@ -1,0 +1,17 @@
+﻿aws s3api create-bucket \
+  --bucket cartrace-dev \
+  --region eu-west-1 \
+  --create-bucket-configuration LocationConstraint=eu-west-1 \
+  --profile snj
+
+
+
+  dotnet lambda deploy-serverless \
+  --stack-name cartrace-dev \
+  --template serverless.template \
+  --s3-bucket cartrace-dev \
+  --region eu-west-1 \
+  --profile snj
+
+
+  curl -i https://st3tfex04i.execute-api.eu-west-1.amazonaws.com/api/mcp
