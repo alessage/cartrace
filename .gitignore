@@ -1,0 +1,89 @@
+# --- Build output ---
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+*.cache
+*.obj
+*.dll
+*.exe
+*.pdb
+*.mdb
+
+# --- .NET intermediate/artifacts ---
+.artifacts/
+*.nuget.props
+*.nuget.targets
+
+# --- Visual Studio & IDEs ---
+.vs/                # richiesta esplicita
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Rider / JetBrains
+.idea/
+*.ipr
+*.iws
+*.iml
+
+# --- Test & coverage ---
+[Tt]est[Rr]esult*/
+TestResult.xml
+coverage*/
+*.coverage
+*.coveragexml
+
+# --- NuGet ---
+packages/
+*.nupkg
+*.snupkg
+# Consenti il restore automatico dei pacchetti ma non commitare i lock locali
+project.lock.json
+
+# --- ASP.NET / Config locali ---
+appsettings.*.local.json
+appsettings.Local.json
+secrets.json
+*.Development.db
+*.db-wal
+*.db-shm
+.env
+.env.*
+
+# Launch/hosting settings (opzionale ignorarli se variano per dev)
+# Properties/launchSettings.json
+
+# --- Pubblicazione ---
+*.Publish.xml
+publish/
+out/
+
+# --- Logs ---
+*.log
+logs/
+*.etl
+*.trace
+
+# --- Roslyn/Analyzer/Code style ---
+*.ruleset
+*.DotSettings.user
+StyleCop.Cache
+
+# --- Others (OS / tooling) ---
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Azure / Docker (se usati) ---
+.publishsettings
+docker-compose.override.yml
+**/.dockerignore.local
