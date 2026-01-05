@@ -6,6 +6,9 @@
       "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\models\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\aws_deploy.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FE77B48C-E7CB-4230-9A11-C011BD60F286}|cartrace.csproj|\\\\mac\\home\\downloads\\cartrace\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -25,7 +28,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Bookmark",
@@ -101,20 +104,33 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "aws_deploy.txt",
+              "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\aws_deploy.txt",
+              "RelativeDocumentMoniker": "aws_deploy.txt",
+              "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\aws_deploy.txt",
+              "RelativeToolTip": "aws_deploy.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-01-05T14:15:33.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "vehicle.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\models\\vehicle.cs",
               "RelativeDocumentMoniker": "models\\vehicle.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\models\\vehicle.cs",
               "RelativeToolTip": "models\\vehicle.cs",
-              "ViewState": "AgIAALQAAAAAAAAAAAAAAMoAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAANwAAAAAAAAAAAAAAPMAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T11:11:27.346Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "VehicleController.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\Controllers\\VehicleController.cs",
               "RelativeDocumentMoniker": "Controllers\\VehicleController.cs",
@@ -127,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "McpController.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\Controllers\\McpController.cs",
               "RelativeDocumentMoniker": "Controllers\\McpController.cs",
@@ -140,7 +156,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "cartrace",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\cartrace.csproj",
               "RelativeDocumentMoniker": "cartrace.csproj",
@@ -152,13 +168,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "\\\\Mac\\Home\\Downloads\\cartrace\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "\\\\Mac\\Home\\Downloads\\cartrace\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAcwEEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAhwFIAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-05T10:26:37.592Z",
               "EditorCaption": ""

@@ -2,6 +2,8 @@
 // --------------------
 // Repository interface
 // --------------------
+using System;
+using System.Net.Sockets;
 using System.Text.Json.Serialization;
 
 public interface IVehicleSnapshotRepository
@@ -166,8 +168,32 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
         var year = 2005 + (hash % 9); // 2016–2024
         var fuel = fuels[(hash / 7) % fuels.Length];
 
-       
 
+        double ComputeConfidence(VehicleSnapshot s)
+        {
+            var score = 0.95;
+
+            score -= s.ServiceEvents.Count * 0.025;
+            score -= s.CurrentUsers.Count * 0.010;
+
+           
+            // penalizza in base alla severità warning_details
+            foreach (var w in s.WarningDetails)
+            {
+                score -= w.Severity switch
+                {
+                    "high" => 0.25,
+                    "medium" => 0.12,
+                    _ => 0.05
+                };
+            }
+
+            // clamp 0..1
+            if (score < 0.05) score = 0.05;
+            if (score > 0.99) score = 0.99;
+
+            return Math.Round(score, 2);
+        }
 
         var snapshot = new VehicleSnapshot
         {
@@ -197,7 +223,7 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
                 new ServiceEvent
                 {
                     PracticeNumber = GeneratePracticeNumber(p, 1),
-                    Type = serviceType[r],
+                    Type = serviceType[i],
                     Km = BaseKm(p),
                     Where = "Workshop " + Math.Abs(plate.GetHashCode()),
                     When = DateOnly.FromDateTime(DateTime.UtcNow.AddDays(-145)),
@@ -208,8 +234,15 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
                 );
         }
 
+        foreach (var ev in snapshot.ServiceEvents)
+        {
+            ev.PartsTotalCost = ev.Parts.Sum(x => x.Cost);
+            Random rand = new Random();
+            ev.Labor = rand.Next(751) / 100.0 + 25.0;
+        }
 
-        // Caso “storia parziale”
+        snapshot.Confidence = ComputeConfidence(snapshot);
+
         if (p.StartsWith("AA"))
         {
             snapshot.ServiceEvents.Clear();
@@ -249,6 +282,8 @@ public sealed class VehicleSnapshot
 {
     [JsonPropertyName("data_as_of")]
     public DateTimeOffset DataAsOf { get; set; }
+    [JsonPropertyName("confidence")]
+    public double Confidence { get; set; }  // 0..1
 
     [JsonPropertyName("vehicle")]
     public VehicleInfo Vehicle { get; set; } = new();
@@ -261,6 +296,21 @@ public sealed class VehicleSnapshot
 
     [JsonPropertyName("warnings")]
     public List<string> Warnings { get; set; } = new();
+
+    [JsonPropertyName("warning_details")]
+    public List<WarningDetail> WarningDetails { get; set; } = new();
+}
+
+public sealed class WarningDetail
+{
+    [JsonPropertyName("code")]
+    public string Code { get; set; } = "";   // es. ODOMETER_INCONSISTENCY
+
+    [JsonPropertyName("message")]
+    public string Message { get; set; } = ""; // descrizione leggibile
+
+    [JsonPropertyName("severity")]
+    public string Severity { get; set; } = "info"; // info|medium|high
 }
 
 public sealed class VehicleInfo
@@ -305,6 +355,11 @@ public sealed class ServiceEvent
 
     [JsonPropertyName("technician")]
     public string Technician { get; set; } = "";
+
+    [JsonPropertyName("parts_total_cost")]
+    public decimal PartsTotalCost { get; set; }
+    [JsonPropertyName("labor")]
+    public double Labor { get; set; }
 
     [JsonPropertyName("parts")]
     public List<PartUsed> Parts { get; set; } = new();
