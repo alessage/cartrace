@@ -280,6 +280,15 @@ public sealed class MockVehicleSnapshotRepository : IVehicleSnapshotRepository
 // --------------------
 public sealed class VehicleSnapshot
 {
+    [JsonPropertyName("request_id")]
+    public string RequestId { get; set; } = "";
+
+    [JsonPropertyName("server_time")]
+    public DateTimeOffset ServerTime { get; set; }
+
+    [JsonPropertyName("latency_ms")]
+    public int LatencyMs { get; set; }
+
     [JsonPropertyName("data_as_of")]
     public DateTimeOffset DataAsOf { get; set; }
     [JsonPropertyName("confidence")]
